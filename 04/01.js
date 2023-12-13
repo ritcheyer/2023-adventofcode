@@ -26,7 +26,7 @@ const dataset = datum.split('\n')
  * Step 2: Split the data up into their parts
 */
 
-let setTotal = 0;
+let scratchTotal = 0;
 
 for (let card of dataset) {
   let cardTotal = 0;
@@ -41,15 +41,16 @@ for (let card of dataset) {
   const myNumbers = mine.split(' ').filter(e => e)
 
   // loop through myNumbers, adding blank spaces before/after the current item so we don't mismatch. 
-  // if current item is in the wins string, perform maths against it.
   myNumbers.forEach(item => {
     scratched = ' ' + item + ' ';
+
+    // if current item is in the wins string, perform some maths against it
     if(wins.includes(scratched)) cardTotal = cardTotal == 0 ? 1 : cardTotal * 2
   });
-  // console.log(`${title}: ${cardTotal}`)
 
-  setTotal+=cardTotal;
+  // now that we have the card total, lets add it to the scratchcard total
+  scratchTotal+=cardTotal;
 
 }
 
-console.log(`Total: ${setTotal}`);
+console.log(`Total: ${scratchTotal}`);
