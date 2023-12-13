@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { machine } = require('os');
 
 const IS_TEST = false
 
